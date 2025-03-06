@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PickMe - Найди свою пару</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">PickMe</div>
+            <nav>
+                <button onclick="showProfile()">Моя анкета</button>
+                <button onclick="showEditModal()">Анкета</button>
+                <button onclick="searchProfiles()">Поиск</button>
+                <button onclick="stopSearch()">Стоп</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-content" id="mainContent"></div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <h2>Ваш профиль</h2>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label>Фото (URL):</label>
+                    <input type="text" id="photo" required>
+                </div>
+                <div class="form-group">
+                    <label>Имя:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Город:</label>
+                    <select id="city" required>
+                        <option value="">Выберите город</option>
+                        <option value="Киев">Киев</option>
+                        <option value="Харьков">Харьков</option>
+                        <option value="Одесса">Одесса</option>
+                        <option value="Днепр">Днепр</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Возраст:</label>
+                    <input type="number" id="age" min="18" max="150">
+                </div>
+                <div class="form-group">
+                    <label>Пол:</label>
+                    <select id="gender" required>
+                        <option value="Мужчина">Мужчина</option>
+                        <option value="Женщина">Женщина</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Ищу:</label>
+                    <select id="searchGender" required>
+                        <option value="Мужчина">Мужчина</option>
+                        <option value="Женщина">Женщина</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>О себе:</label>
+                    <textarea id="about"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeMessageModal()">×</span>
+            <h2>Сообщение</h2>
+            <textarea id="messageText" placeholder="Введите сообщение..."></textarea>
+            <button class="submit-btn" onclick="sendMessage()">Отправить</button>
+            <div class="messages" id="messageList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
